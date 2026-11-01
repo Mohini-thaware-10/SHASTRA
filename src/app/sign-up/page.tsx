@@ -1,16 +1,15 @@
-import { InfoPage } from "@/components/common/info-page";
-import { PageShell } from "@/components/layout/page-shell";
-import { AuthLayout } from "@/components/auth/AuthLayout";
-import { AuthRoleSelector } from "@/components/auth/AuthRoleSelector";
-import { SignUpForm } from "@/components/auth/SignUpForm";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Sign up",
-  description: "SHATRA account registration",
-};
+import { useState } from "react";
+import { Metadata } from "next";
+import Link from "next/link";
+
+import { SignUpFormData } from "@/types/auth";
+import { SignUpForm } from "@/components/auth/SignUpForm";
+import { PageShell } from "@/components/layout/page-shell";
 
 export default function SignUpPage() {
-  const [signUpData, setSignUpData] = useState<SignUpFormData | null>(null);
+  const [signUpData, setSignUpData] = useState<{ email?: string } | null>(null);
   const [signUpError, setSignUpError] = useState<string | null>(null);
 
   const onSignUp = (data: SignUpFormData) => {
@@ -18,27 +17,20 @@ export default function SignUpPage() {
     setSignUpError(null);
   };
 
-  const onSignUpError = (errors: string[]) => {
-    setSignUpError(errors.join(", "));
-  };
-
   return (
     <PageShell>
-      <AuthLayout showBrand={true}>
-        <SignUpForm
-          onSuccess={onSignUp}
-          onError={onSignUpError}
-        />
-        {signUpError && (
-          <p className="mt-4 text-sm text-red-600">{signUpError}</p>
-        )}
-        {signUpData && (
-          <p className="mt-4 text-sm text-ink">
-            Account created • {" "}
-            <span className="font-medium">{signUpData.email}</span>
-          </p>
-        )}
-      </AuthLayout>
+      <SignUpForm
+        onSubmit={(data) => onSignUp(data)}
+      />
+      {signUpError && (
+        <p className="mt-4 text-sm text-red-600">{signUpError}</p>
+      )}
+      {signUpData && (
+        <p className="mt-4 text-sm text-ink">
+          Account created • {" "}
+          <span className="font-medium">{signUpData.email}</span>
+        </p>
+      )}
     </PageShell>
   );
 }

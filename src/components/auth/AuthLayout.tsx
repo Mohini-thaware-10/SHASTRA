@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 
 import { BrandMark } from "@/components/common/brand-mark";
 import { cn } from "@/lib/utils";
@@ -22,17 +21,6 @@ export function AuthLayout({
           />
         )}
         <section className="w-full max-w-[1400] mx-auto">{children}</section>
-        {/* CTA line on larger screens */}
-        {window.innerWidth >= 1024 && (
-          <div className="mt-8 text-center text-ink-soft text-xs">
-            <Link
-              href="#universes"
-              className="hover:text-violet-underline decoration-violet underline underline-offset-2"
-            >
-              Explore the universes →
-            </Link>
-          </div>
-        )}
       </div>
     </main>
   );

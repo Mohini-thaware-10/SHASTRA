@@ -1,5 +1,7 @@
 import { SignInFormData, SignUpFormData, AccountRole } from '@/types/auth';
 
+export type { SignInFormData, SignUpFormData };
+
 export function validateSignIn(data: SignInFormData): { ok: boolean; errors: string[] } {
   const errors: string[] = [];
   if (!data.email) errors.push('Email is required');

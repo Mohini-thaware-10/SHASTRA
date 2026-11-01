@@ -1,6 +1,10 @@
+import { Metadata } from "next";
+import Link from "next/link";
+
 import { InfoPage } from "@/components/common/info-page";
 import { PageShell } from "@/components/layout/page-shell";
 import { AuthLayout } from "@/components/auth/AuthLayout";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Forgot password",
@@ -14,8 +18,7 @@ export default function ForgotPasswordPage() {
         <InfoPage
           eyebrow="Forgot password"
           title="SHATRA"
-          description="Enter the email address associated with your account. We'll send you instructions to reset your password."
-          className="max-w-md mx-auto"
+          description="Enter the email address associated with your account. We will send you instructions to reset your password."
         >
           <form className="mt-6 space-y-4" aria-labelledby="forgot-title">
             <h2 id="forgot-title" className="text-xl font-semibold text-ink mb-4">
@@ -32,7 +35,7 @@ export default function ForgotPasswordPage() {
                 aria-describedby="forgot-email-help"
               />
               <p id="forgot-email-help" className="text-xs text-ink-muted/60">
-                We'll send a password reset link if an account exists with this email.
+                We will send a password reset link if an account exists with this email.
               </p>
             </div>
             <Button type="submit" className="w-full">

@@ -1,6 +1,10 @@
+import { Metadata } from "next";
+import Link from "next/link";
+
 import { InfoPage } from "@/components/common/info-page";
 import { PageShell } from "@/components/layout/page-shell";
 import { AuthLayout } from "@/components/auth/AuthLayout";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Verify email",
@@ -15,7 +19,6 @@ export default function VerifyEmailPage() {
           eyebrow="Verify email"
           title="SHATRA"
           description="Your email address needs to be verified. A verification link has been sent to your inbox."
-          className="max-w-md mx-auto"
         >
           <div className="mt-8 text-center">
             <svg
@@ -27,9 +30,9 @@ export default function VerifyEmailPage() {
             </svg>
             <h3 className="text-xl font-semibold text-ink mb-2">Check your inbox</h3>
             <p className="text-ink-muted/70 mb-6">
-              We've sent a verification email to <span className="font-medium">student@shatra.example</span>. Please open the email and click the verification link.
+              We have sent a verification email to <span className="font-medium">student@shatra.example</span>. Please open the email and click the verification link.
             </p>
-            <Button variant="outline" className="mt-4">
+            <Button className="mt-4">
               Resend verification link
             </Button>
             <p className="mt-4 text-sm text-ink-muted/70">

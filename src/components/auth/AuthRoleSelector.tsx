@@ -1,4 +1,7 @@
+"use client";
+
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { GraduationCap, User } from "lucide-react";
 
 export function AuthRoleSelector({
@@ -13,9 +16,9 @@ export function AuthRoleSelector({
   );
 
   const options = [
-    { label: "Student", icon: User, value: "student" },
-    { label: "Teacher", icon: GraduationCap, value: "teacher" },
-  ];
+    { label: "Student", icon: User, value: "student" as const },
+    { label: "Teacher", icon: GraduationCap, value: "teacher" as const },
+  ] as const;
 
   return (
     <div className="flex gap-2 rounded-md border border-line bg-white/60 p-1">

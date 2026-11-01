@@ -1,17 +1,14 @@
+"use client";
+
 import { useState } from "react";
-import { GraduationCap, User, School, Calendar } from "lucide-react";
+import { Eye, EyeOff, GraduationCap, User, School, Calendar } from "lucide-react";
 import Link from "next/link";
 
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { validateSignUp, type SignUpFormData } from "@/lib/validation/auth";
 
-export function SignUpForm({
-  onSuccess,
-  onError,
-}: {
-  onSuccess: (data: SignUpFormData) => void;
-  onError: (errors: string[]) => void;
-}) {
+export function SignUpForm({ onSubmit }: { onSubmit: (data: SignUpFormData) => void }) {
   const [role, setRole] = useState<'student' | 'teacher'>('student');
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -43,7 +40,7 @@ export function SignUpForm({
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
-      onSuccess?.(data);
+      onSubmit?.(data);
     }, 1200);
   };
 
@@ -127,7 +124,7 @@ export function SignUpForm({
           <p className="mt-1 text-xs text-red-600">{error}</p>
         )}
         <p id="email-help-text-2" className="text-xs text-ink-muted/60">
-          We'll never share your email.
+          We will never share your email.
         </p>
       </div>
 
@@ -149,7 +146,7 @@ export function SignUpForm({
             className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-muted/60 hover:text-ink focus:focus-visible:outline-none"
             aria-label={showPassword ? "Hide password" : "Show password"}
           >
-            {showPassword ? EyeOff : Eye}
+            {showPassword ? <EyeOff /> as React.ReactNode : <Eye /> as React.ReactNode}
           </button>
         </div>
         {error && error.includes("password") && (
@@ -212,7 +209,6 @@ export function SignUpForm({
             <option value="5">5</option>
             <option value="6">6</option>
             <option value="7">7</option>
-            <option value="8">8</option>
             <option value="8">8</option>
             <option value="9">9</option>
             <option value="10">10</option>
