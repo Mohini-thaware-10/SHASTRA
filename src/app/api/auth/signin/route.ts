@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase/server-client";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 export async function POST(request: Request) {
   try {
     const { email, password } = await request.json();
@@ -23,15 +20,22 @@ export async function POST(request: Request) {
     // Check if the user's profile exists and has the right status
     const { data: profileData, error: profileError } = await supabaseServer
       .from("profiles")
-      .select("*")
+      .select("account_status, account_role")
       .eq("id", data.user.id)
       .single();
 
     if (profileError) {
-      return NextResponse.json(
-        { error: "Profile not found" },
-        { status: 404 }
-      );
+      // Profile may not exist yet - this is ok for new signups
+      return NextResponse.json({
+        success: true,
+        user: {
+          id: data.user.id,
+          email: data.user.email,
+          email_confirmed: data.user.email_confirmed_at !== null,
+          account_status: "pending_verification",
+          account_role: "pending_teacher",
+        },
+      });
     }
 
     // Check account status

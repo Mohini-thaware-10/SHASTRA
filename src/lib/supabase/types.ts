@@ -1,3 +1,5 @@
+/// <reference types="@supabase/supabase-js" />
+
 export type Database = {
   public: {
     Tables: {
@@ -35,7 +37,6 @@ export type Database = {
           reference: ["id"];
         };
       };
-      // Other tables can be added here
     };
     Enums: {
       [_ in never]: never;

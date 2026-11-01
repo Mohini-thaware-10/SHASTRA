@@ -1,10 +1,5 @@
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase/server-client";
-import { supabaseBrowser } from "@/lib/supabase/browser-client";
-import { Database } from "@/lib/supabase/types";
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export async function POST(request: Request) {
   try {
@@ -42,8 +37,6 @@ export async function POST(request: Request) {
         });
 
       if (profileError) {
-        // If profile creation fails, we should ideally delete the auth user
-        // but for now we'll just report the error
         return NextResponse.json(
           { error: "Signup successful but profile creation failed: " + profileError.message },
           { status: 500 }

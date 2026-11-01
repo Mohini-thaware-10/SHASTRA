@@ -155,7 +155,7 @@ export function SignInForm({ onSubmit }: { onSubmit: (data: SignInFormData) => v
 
       {/* Create account link */}
       <p className="mt-5 text-sm text-ink-muted/70">
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <Link
           href="/sign-up"
           className="font-medium underline underline-offset-2 text-violet-strong hover:text-violet/90"
