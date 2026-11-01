@@ -1,0 +1,89 @@
+/* Universe theme tokens. Future dashboards can opt in with data-universe. */
+[data-universe="junior"] {
+  --universe-accent: #e98757;
+  --universe-accent-strong: #c56532;
+  --universe-soft: #fff0e7;
+  --universe-mid: #ffd7c0;
+  --universe-ink: #512917;
+  --universe-border: #f1cfbb;
+  --universe-highlight: #6eb8db;
+  --universe-surface: #fffaf4;
+  --universe-gradient: linear-gradient(
+    140deg,
+    #fff9f1 0%,
+    #ffe6d0 48%,
+    #e6f5fb 100%
+  );
+  --universe-glow: rgba(233, 135, 87, 0.24);
+  --universe-ring: rgba(233, 135, 87, 0.32);
+}
+
+[data-universe="nexus"] {
+  --universe-accent: #6f5ce0;
+  --universe-accent-strong: #5542c5;
+  --universe-soft: #f0ecff;
+  --universe-mid: #dcd4ff;
+  --universe-ink: #2c245c;
+  --universe-border: #ddd4ff;
+  --universe-highlight: #5db79c;
+  --universe-surface: #fbf9ff;
+  --universe-gradient: linear-gradient(
+    140deg,
+    #f8f5ff 0%,
+    #e9e2ff 48%,
+    #e4f4fb 100%
+  );
+  --universe-glow: rgba(111, 92, 224, 0.24);
+  --universe-ring: rgba(111, 92, 224, 0.32);
+}
+
+[data-universe="ascend"] {
+  --universe-accent: #277d99;
+  --universe-accent-strong: #1b6079;
+  --universe-soft: #edf6fa;
+  --universe-mid: #d6eaf2;
+  --universe-ink: #17324a;
+  --universe-border: #cfe3ed;
+  --universe-highlight: #c99a3f;
+  --universe-surface: #f9fbfc;
+  --universe-gradient: linear-gradient(
+    140deg,
+    #f9fbfc 0%,
+    #e5f0f6 48%,
+    #f7edd6 100%
+  );
+  --universe-glow: rgba(39, 125, 153, 0.2);
+  --universe-ring: rgba(39, 125, 153, 0.3);
+}
+
+.universe-surface {
+  background-color: var(--universe-surface);
+}
+
+.universe-gradient {
+  background-image: var(--universe-gradient);
+}
+
+.universe-soft {
+  background-color: var(--universe-soft);
+}
+
+.universe-accent-bg {
+  background-color: var(--universe-accent);
+}
+
+.universe-accent-text {
+  color: var(--universe-accent);
+}
+
+.universe-accent-border {
+  border-color: var(--universe-border);
+}
+
+.universe-ring {
+  box-shadow: 0 0 0 1px var(--universe-border);
+}
+
+.universe-glow {
+  box-shadow: 0 30px 80px -40px var(--universe-glow);
+}

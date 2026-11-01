@@ -1,0 +1,312 @@
+@import "tailwindcss";
+@import "../styles/themes.css";
+
+@theme inline {
+  --color-background: var(--shatra-bg);
+  --color-cream: var(--shatra-cream);
+  --color-surface: var(--shatra-surface);
+  --color-surface-strong: var(--shatra-surface-strong);
+  --color-surface-muted: var(--shatra-surface-muted);
+  --color-ink: var(--shatra-ink);
+  --color-ink-soft: var(--shatra-ink-soft);
+  --color-ink-muted: var(--shatra-ink-muted);
+  --color-line: var(--shatra-line);
+  --color-line-strong: var(--shatra-line-strong);
+  --color-violet: var(--shatra-violet);
+  --color-violet-strong: var(--shatra-violet-strong);
+  --color-violet-soft: var(--shatra-violet-soft);
+  --color-sky: var(--shatra-sky);
+  --color-sky-soft: var(--shatra-sky-soft);
+  --color-gold: var(--shatra-gold);
+  --color-gold-soft: var(--shatra-gold-soft);
+  --color-coral: var(--shatra-coral);
+  --color-coral-soft: var(--shatra-coral-soft);
+  --color-mint: var(--shatra-mint);
+  --color-mint-soft: var(--shatra-mint-soft);
+  --color-blush: var(--shatra-blush);
+  --color-blush-soft: var(--shatra-blush-soft);
+  --color-plum: var(--shatra-plum);
+  --color-plum-deep: var(--shatra-plum-deep);
+
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-sora);
+  --font-serif: var(--font-instrument-serif);
+
+  --radius-panel: 2rem;
+  --radius-card: 1.5rem;
+  --radius-pill: 999px;
+
+  --shadow-soft: 0 24px 70px -42px rgba(30, 24, 58, 0.35);
+  --shadow-lift: 0 32px 90px -48px rgba(30, 24, 58, 0.42);
+  --shadow-glow: 0 28px 80px -44px rgba(111, 92, 224, 0.4);
+}
+
+:root {
+  color-scheme: light;
+
+  --shatra-bg: #fbf8f2;
+  --shatra-cream: #f5efe3;
+  --shatra-surface: #fffdf9;
+  --shatra-surface-strong: #ffffff;
+  --shatra-surface-muted: #f3ede2;
+
+  --shatra-ink: #1c1930;
+  --shatra-ink-soft: #4b4762;
+  --shatra-ink-muted: #77728a;
+  --shatra-line: rgba(35, 29, 63, 0.1);
+  --shatra-line-strong: rgba(35, 29, 63, 0.16);
+
+  --shatra-violet: #7867e8;
+  --shatra-violet-strong: #5b49cf;
+  --shatra-violet-soft: #eee9ff;
+  --shatra-sky: #6eb8db;
+  --shatra-sky-soft: #e5f4fb;
+  --shatra-gold: #d3a041;
+  --shatra-gold-soft: #fbf0d6;
+  --shatra-coral: #e98757;
+  --shatra-coral-soft: #fff0e7;
+  --shatra-mint: #64b49b;
+  --shatra-mint-soft: #e6f6f0;
+  --shatra-blush: #e18ba0;
+  --shatra-blush-soft: #fdeef2;
+  --shatra-plum: #241e3d;
+  --shatra-plum-deep: #17132a;
+
+  --header-height: 5rem;
+  --scrollbar-compensation: 0px;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 1.5rem);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--shatra-bg);
+    color: var(--shatra-ink);
+    font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+    font-synthesis: none;
+    overflow-x: clip;
+    min-height: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  section[id] {
+    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+  }
+
+  ::selection {
+    background: var(--shatra-violet-soft);
+    color: var(--shatra-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--shatra-violet-strong);
+    outline-offset: 3px;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .text-gradient-violet {
+    background-image: linear-gradient(
+      102deg,
+      var(--shatra-violet-strong) 0%,
+      #8d7cf2 45%,
+      #be9c56 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-plum {
+    background-image: linear-gradient(
+      105deg,
+      #ffffff 0%,
+      #f4eaff 46%,
+      #f3d9a2 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(35, 29, 63, 0.11) 1px,
+      transparent 0
+    );
+    background-size: 24px 24px;
+  }
+
+  .dot-grid-light {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.16) 1px,
+      transparent 0
+    );
+    background-size: 26px 26px;
+  }
+
+  .grain-overlay::after {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    content: "";
+    inset: 0;
+    opacity: 0.035;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  .panel-shadow {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .panel-shadow-lift {
+    box-shadow: var(--shadow-lift);
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+
+  .animate-shatra-float {
+    animation: shatra-float 7s ease-in-out infinite;
+  }
+
+  .animate-shatra-float-slow {
+    animation: shatra-float 10s ease-in-out infinite;
+  }
+
+  .animate-shatra-drift {
+    animation: shatra-drift 16s ease-in-out infinite alternate;
+  }
+
+  .animate-shatra-twinkle {
+    animation: shatra-twinkle 4s ease-in-out infinite;
+  }
+
+  .animate-shatra-orbit {
+    animation: shatra-orbit 40s linear infinite;
+  }
+
+  .animate-shatra-pulse {
+    animation: shatra-pulse 5s ease-in-out infinite;
+  }
+}
+
+@keyframes shatra-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(0.8deg);
+  }
+}
+
+@keyframes shatra-drift {
+  0% {
+    transform: translate3d(-12px, 4px, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(14px, -8px, 0) scale(1.04);
+  }
+}
+
+@keyframes shatra-twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.82);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes shatra-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shatra-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(120, 103, 232, 0.16);
+  }
+  50% {
+    box-shadow: 0 0 0 18px rgba(120, 103, 232, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

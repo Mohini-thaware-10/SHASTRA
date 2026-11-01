@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="shatra-icon-bg" x1="8" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D2550"/>
+      <stop offset="0.55" stop-color="#3C316A"/>
+      <stop offset="1" stop-color="#6A57D5"/>
+    </linearGradient>
+    <linearGradient id="shatra-icon-star" x1="20" y1="14" x2="46" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E8DDFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#shatra-icon-bg)"/>
+  <circle cx="32" cy="32" r="22" stroke="white" stroke-opacity="0.22" stroke-width="1.2" stroke-dasharray="2.5 5"/>
+  <ellipse cx="32" cy="32" rx="25" ry="10" transform="rotate(-32 32 32)" stroke="white" stroke-opacity="0.28" stroke-width="1.2"/>
+  <path d="M32 13L35.4 27.2L50 32L35.4 36.8L32 51L28.6 36.8L14 32L28.6 27.2L32 13Z" fill="url(#shatra-icon-star)"/>
+  <circle cx="47" cy="17" r="2.6" fill="#F0C978"/>
+</svg>
