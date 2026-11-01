@@ -137,7 +137,11 @@ function QuestionCard({
               >
                 <input
                   type="checkbox"
-                  checked={isAnswered ? question.correctAnswerIds!.includes(option.id) : false}
+checked={isAnswered
+                    ? Array.isArray(question.correctAnswer as string | string[])
+                      ? (question.correctAnswer as string[]).includes(option.id)
+                      : question.correctAnswer === option.id
+                    : false}
                   onChange={() => onSelect(option.id)}
                   className="rounded border-primary square"
                 />
@@ -225,7 +229,7 @@ function QuestionCard({
 
         {isMarkedForReview && (
           <button
-            onClick={setMarkedForReview}
+            onClick={() => setMarkedForReview(!isMarkedForReview)}
             className="text-xs text-primary/60 hover:text-primary mt-2"
             title="Remove from review"
           >

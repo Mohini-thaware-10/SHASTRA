@@ -12,7 +12,8 @@ export type ButtonVariant =
   | "secondary"
   | "ghost"
   | "light"
-  | "outline-light";
+  | "outline-light"
+  | "outline";
 
 export type ButtonSize = "sm" | "md" | "lg";
 
@@ -46,6 +47,8 @@ const variantStyles: Record<ButtonVariant, string> = {
     "bg-white text-plum shadow-[0_18px_36px_-22px_rgba(0,0,0,0.45)] hover:-translate-y-0.5 hover:bg-cream active:translate-y-0",
   "outline-light":
     "border border-white/20 bg-white/[0.06] text-white hover:border-white/35 hover:bg-white/[0.12]",
+  outline:
+    "border border-primary bg-primary/10 text-primary hover:bg-primary/20"
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect, useRef } from "react";
 import { Container } from "@/components/common/container";
 import { SectionHeading } from "@/components/common/section-heading";
@@ -7,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { mockQuestions } from "@/content/assessment";
-import { UniversityTheme, universes, getUniverse } from "@/components/common/university-theme";
+import { universes, getUniverse } from "@/config/themes";
 import type { UniverseId } from "@/types/theme";
 
 interface AssessmentResultsProps {
@@ -74,7 +72,7 @@ export function AssessmentResultsPage({
         description="Here's how you performed in the assessment"
       />
 
-      <div className="pace-step">
+      <div>
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="p-6 rounded-2xl bg-[var(--universe-surface)] border border-[var(--universe-border)]">
             <p className="text-3xl font-bold text-ink">{percentage}%</p>
@@ -93,15 +91,6 @@ export function AssessmentResultsPage({
           <p className="font-display text-[clamp(1.2rem,3vw,1.5rem)] font-semibold text-ink">
             {strengthClass}
           </p>
-          <UniversityTheme universe={universeId}>
-            <p className="text-xs text-text-soft/60 mt-2">
-              {universeId === "junior"
-                ? "Keep exploring and learning!"
-                : universeId === "nexus"
-                ? "Good progress! Your learning journey is just beginning."
-                : "Excellent foundation for advanced studies."}
-            </p>
-          </UniversityTheme>
         </div>
 
         {/* Subject performance breakdown */}
@@ -110,7 +99,9 @@ export function AssessmentResultsPage({
           <div className="grid grid-cols-3 gap-3" style={{ maxWidth: "unset" }}>
             {Object.entries(subjectPerformance).map(([subject, acc]) => (
               <div key={subject} className="p-3 rounded-md bg-[var(--universe-surface)] border border-[var(--universe-border)]">
-                <p className="text-xs text-text-soft/60 mb-1">{subject.charAt(0).toUpperCase() + subject.slice(1)}</p>
+                <p className="text-xs text-text-soft/60 mb-1">
+                  {subject.charAt(0).toUpperCase() + subject.slice(1)}
+                </p>
                 <div className="h-2 rounded-full bg-border-soft overflow-hidden">
                   <div
                     className="h-full rounded-full bg-primary transition-width"
@@ -162,7 +153,7 @@ export function AssessmentResultsPage({
         </div>
 
         {/* Recommendations */}
-        <div className="mt-8 pt-8 border-t border-border-soft">
+        <div className="mt-8 pt-6 border-t border-border-soft">
           <p className="text-sm text-text-soft/60 mb-4">Personalized Recommendations</p>
           <ul className="space-y-3">
             {percentage >= 80 && (

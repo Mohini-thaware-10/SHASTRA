@@ -6,8 +6,8 @@ import { SectionHeading } from "@/components/common/section-heading";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { mockQuestions, type AssessmentQuestion } from "@/content/assessment";
-import { QuestionCard } from "@/app/assessment/questions/question-card";
+import { mockQuestions } from "@/content/assessment";
+import QuestionCard from "@/app/assessment/questions/question-card";
 import { universes, getUniverse } from "@/config/themes";
 import type { UniverseId } from "@/types/theme";
 
@@ -22,7 +22,6 @@ export function AssessmentSessionPage({
 }: AssessmentSessionProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [markedForReview, setMarkedForReview] = useState(false);
-  const [answerSubmitted, setAnswerSubmitted] = useState(false);
   const [difficultyLevel, setDifficultyLevel] = useState("easy" as "easy" | "medium" | "hard");
   const startTime = useRef(Date.now());
 
@@ -34,13 +33,14 @@ export function AssessmentSessionPage({
       currentQuestion.questionType === "multiple-choice"
         ? currentQuestion.correctAnswerId != null
         : currentQuestion.questionType === "multiple-select"
-        ? currentQuestion.correctAnswerIds != null
-            ? currentQuestion.correctAnswerIds.length > 0
-            : false
+        ? Array.isArray(currentQuestion.correctAnswerIds)
+          ? currentQuestion.correctAnswerIds.length > 0
+          : false
+        : currentQuestion.questionType === "true-false"
+        ? currentQuestion.correctAnswer === "true"
         : currentQuestion.correctAnswer != null;
 
     if (!isAnswered) {
-      // Show warning but still navigate
       window.alert("Please answer the current question first");
       return;
     }
@@ -49,11 +49,9 @@ export function AssessmentSessionPage({
     const correct = checkAnswer(currentQuestionIndex);
     setDifficultyLevel((prev) => {
       if (correct) {
-        // Increase difficulty if at medium or hard max
         if (prev === "medium" || prev === "hard") return "hard";
         return "medium";
       } else {
-        // Decrease difficulty if at easy min
         if (prev === "easy" || prev === "medium") return "easy";
         return "medium";
       }
@@ -69,27 +67,27 @@ export function AssessmentSessionPage({
   const checkAnswer = (index: number): boolean => {
     const question = mockQuestions[index];
     // Simple deterministic check based on question index
-    // In a real implementation, this would compare the student's answer
-    return index % 3 !== 0; // Mock: every 3rd question is "incorrect"
+    return index % 3 !== 0;
   };
 
-  const handleAnswerSelect = (optionId: string | string | null) => {
-    // Handle answer selection - just navigate forward for now
-    // In a full implementation, this would record the answer
-    setAnswerSubmitted(true);
-  };
-
-  const elapsedTime = useRef(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   useEffect(() => {
-    elapsedTime.current = Date.now() - startTime.current;
-  }, [startTime]);
+    const interval = setInterval(() => {
+      setSeconds((prev) => {
+        if (prev >= 59) {
+          setMinutes((prev) => prev + 1);
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-  const minutes = Math.floor(elapsedTime.current / 60000);
-  const seconds = Math.floor((elapsedTime.current % 60000) / 1000);
-
-  const totalQuestionsAnswered = mockQuestions.filter(
-    (_, i) => i <= currentQuestionIndex
-  ).length;
+  const elapsedTime = minutes > 0
+    ? `${minutes}:${seconds.toString().padStart(2, "0")}`
+    : `${seconds}s`;
 
   const universeId = classLevel
     ? classLevel.startsWith("1") || classLevel.startsWith("2") || classLevel.startsWith("3") || classLevel.startsWith("4") || classLevel.startsWith("5")
@@ -126,14 +124,17 @@ export function AssessmentSessionPage({
           </Badge>
         </div>
 
-        <elapsedTime >{minutes}:{seconds.toString().padStart(2, "0")}</elapsedTime>
+        <div className="mt-2 text-right">
+          <span className="text-sm text-muted-foreground">Elapsed: </span>
+          <span className="font-medium text-ink">{elapsedTime}</span>
+        </div>
       </div>
 
       <QuestionCard
         question={mockQuestions[currentQuestionIndex]}
         questionNumber={currentQuestionIndex + 1}
         totalQuestions={totalQuestions}
-        onSelect={(optionId) => handleAnswerSelect(optionId)}
+        onSelect={(optionId) => {}}
         onNext={handleNext}
         onBack={handleBack}
         isMarkedForReview={markedForReview}

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { Container } from "@/components/common/container";
 import { SectionHeading } from "@/components/common/section-heading";
@@ -7,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { mockQuestions } from "@/content/assessment";
-import { UniversityTheme, universes, getUniverse } from "@/components/common/university-theme";
+import { universes, getUniverse } from "@/config/themes";
 import type { UniverseId } from "@/types/theme";
 
 interface AssessmentIntroProps {
@@ -53,11 +51,6 @@ export function AssessmentIntroPage({ studentName, classLevel }: AssessmentIntro
             <p className="text-text-soft/text-lg">
               {classLevel ? `Class ${classLevel}` : "Select your class"}
             </p>
-            <UniversityTheme universe={universeId}>
-              <p className="text-sm text-text-soft/60">
-                {universe.shortName} Universe
-              </p>
-            </UniversityTheme>
           </div>
 
           {/* Assessment overview */}
@@ -94,15 +87,13 @@ export function AssessmentIntroPage({ studentName, classLevel }: AssessmentIntro
           </div>
 
           {/* Age-appropriate messaging */}
-          <UniversityTheme universe={universeId}>
-            <p className="text-xs text-text-soft/60 mt-4">
-              {universeId === "junior"
-                ? "Don't worry—this is just to help us learn how you learn best!"
-                : universeId === "nexus"
-                ? "Think of this as a mission to discover your learning strengths!"
-                : "This assessment will help us chart your academic path forward."}
-            </p>
-          </UniversityTheme>
+          <p className="text-xs text-text-soft/60 mt-4">
+            {universeId === "junior"
+              ? "Don't worry—this is just to help us learn how you learn best!"
+              : universeId === "nexus"
+              ? "Think of this as a mission to discover your learning strengths!"
+              : "This assessment will help us chart your academic path forward."}
+          </p>
         </div>
       </div>
     </Container>

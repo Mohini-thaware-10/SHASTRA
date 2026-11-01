@@ -10,7 +10,8 @@ export type BadgeTone =
   | "coral"
   | "mint"
   | "blush"
-  | "dark";
+  | "dark"
+  | "accent";
 
 interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   tone?: BadgeTone;
@@ -27,6 +28,7 @@ const toneStyles: Record<BadgeTone, string> = {
   mint: "border-mint/20 bg-mint-soft text-[#2e7f69]",
   blush: "border-blush/20 bg-blush-soft text-[#a8475f]",
   dark: "border-white/10 bg-white/[0.07] text-white/80",
+  accent: "border-primary bg-primary/10 text-primary",
 };
 
 export function Badge({
