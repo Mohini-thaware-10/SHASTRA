@@ -2379,9 +2379,6 @@ function getJuniorSubjectIcon(subject: string): string {
     });
   }
 
-  return events;
-}
-
 /**
  * Get visual indicator for activity event type and universe
  */
