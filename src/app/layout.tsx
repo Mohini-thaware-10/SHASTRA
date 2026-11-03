@@ -3,6 +3,7 @@ import { Instrument_Serif, Manrope, Sora } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { MotionProvider } from "@/components/providers/motion-provider";
+import { AuthStateProvider } from "@/components/auth/AuthStateProvider";
 import { brand } from "@/config/brand";
 
 import "./globals.css";
@@ -83,7 +84,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
           Skip to content
         </a>
-        <MotionProvider>{children}</MotionProvider>
+        <AuthStateProvider>
+          <MotionProvider>{children}</MotionProvider>
+        </AuthStateProvider>
       </body>
     </html>
   );

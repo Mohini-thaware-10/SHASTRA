@@ -1,0 +1,66 @@
+
+> shatra@0.1.0 dev
+> next dev
+
+▲ Next.js 16.4.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.79.8.108:3000
+- Environments: .env.local
+✓ Ready in 449ms
+✓ Running next.config.ts took 42ms
+- Cache Components enabled
+- Partial Prefetching enabled
+
+⨯ ./src/lib/dashboard/mock-data.ts:1165:16
+Error: Unterminated string constant
+  [90m1163 |[0m         id: [32m"eng-act-2-1-3"[0m,
+  [90m1164 |[0m         [36mtype[0m: [32m"trueFalse"[0m,
+[31m[1m>[0m [90m1165 |[0m         title: [32m"Is this a sentence? 'The dog.',[0m
+  [90m     |[0m                [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m1166 |[0m [32m        question: "[0m[33mIs[0m [36mthis[0m a sentence? [32m'The dog.'[0m[32m",[0m
+  [90m1167 |[0m [32m        options: [[0m
+  [90m1168 |[0m [32m          { id: "[0ma[32m", text: "[0m[33mTrue[0m[32m", isCorrect: false, selected: false },[0m
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/lib/dashboard/mock-data.ts [Client Component Browser]
+    ./src/components/auth/AuthStateProvider.tsx [Client Component Browser]
+    ./src/components/auth/AuthStateProvider.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/lib/dashboard/mock-data.ts [Client Component SSR]
+    ./src/components/auth/AuthStateProvider.tsx [Client Component SSR]
+    ./src/components/auth/AuthStateProvider.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+
+ GET / 500 in 311ms (next.js: 190ms, application-code: 121ms)
+[browser] Uncaught Error: ./src/lib/dashboard/mock-data.ts:1165:16
+Error: Unterminated string constant
+  1163 |         id: "eng-act-2-1-3",
+  1164 |         type: "trueFalse",
+> 1165 |         title: "Is this a sentence? 'The dog.',
+       |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  1166 |         question: "Is this a sentence? 'The dog.'",
+  1167 |         options: [
+  1168 |           { id: "a", text: "True", isCorrect: false, selected: false },
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/lib/dashboard/mock-data.ts [Client Component Browser]
+    ./src/components/auth/AuthStateProvider.tsx [Client Component Browser]
+    ./src/components/auth/AuthStateProvider.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/lib/dashboard/mock-data.ts [Client Component SSR]
+    ./src/components/auth/AuthStateProvider.tsx [Client Component SSR]
+    ./src/components/auth/AuthStateProvider.tsx [Server Component]
+    ./src/app/layout.tsx [Server Component]
+
+

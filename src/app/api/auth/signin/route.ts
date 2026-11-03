@@ -20,12 +20,13 @@ export async function POST(request: Request) {
     // Check if the user's profile exists and has the right status
     const { data: profileData, error: profileError } = await supabaseServer
       .from("profiles")
-      .select("account_status, account_role")
+      .select("account_status, account_role, institution_id")
       .eq("id", data.user.id)
       .single();
 
     if (profileError) {
       // Profile may not exist yet - this is ok for new signups
+      // Return minimal user data; frontend will handle onboarding
       return NextResponse.json({
         success: true,
         user: {
@@ -34,6 +35,8 @@ export async function POST(request: Request) {
           email_confirmed: data.user.email_confirmed_at !== null,
           account_status: "pending_verification",
           account_role: "pending_teacher",
+          // No institution_id yet - will be set during onboarding
+          institution_id: null,
         },
       });
     }
@@ -61,6 +64,7 @@ export async function POST(request: Request) {
         email_confirmed: data.user.email_confirmed_at !== null,
         account_status: profileData.account_status,
         account_role: profileData.account_role,
+        institution_id: profileData.institution_id,
       },
     });
   } catch (error) {
