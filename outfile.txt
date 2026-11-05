@@ -1,0 +1,77 @@
+src/app/ascend/exam-preparation/page.tsx(175,8): error TS17008: JSX element 'Container' has no corresponding closing tag.
+src/app/ascend/exam-preparation/page.tsx(368,27): error TS17002: Expected corresponding JSX closing tag for 'div'.
+src/app/ascend/exam-preparation/page.tsx(369,21): error TS1005: ')' expected.
+src/app/ascend/exam-preparation/page.tsx(408,16): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/app/ascend/exam-preparation/page.tsx(411,13): error TS1005: ')' expected.
+src/app/ascend/exam-preparation/page.tsx(531,7): error TS1128: Declaration or statement expected.
+src/app/ascend/exam-preparation/page.tsx(532,5): error TS1109: Expression expected.
+src/app/ascend/exam-preparation/page.tsx(533,3): error TS1109: Expression expected.
+src/app/ascend/exam-preparation/page.tsx(534,1): error TS1128: Declaration or statement expected.
+src/app/ascend/page.tsx(87,152): error TS1003: Identifier expected.
+src/app/ascend/page.tsx(89,16): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/ascend/page.tsx(167,92): error TS1003: Identifier expected.
+src/app/ascend/page.tsx(169,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/ascend/page.tsx(195,92): error TS1003: Identifier expected.
+src/app/ascend/page.tsx(197,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/dashboard/achievements/page.tsx(13,21): error TS1003: Identifier expected.
+src/app/dashboard/achievements/page.tsx(14,8): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/dashboard/assessments/page.tsx(13,21): error TS1003: Identifier expected.
+src/app/dashboard/assessments/page.tsx(14,8): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/dashboard/profile/page.tsx(13,21): error TS1003: Identifier expected.
+src/app/dashboard/profile/page.tsx(14,8): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/dashboard/progress/page.tsx(13,21): error TS1003: Identifier expected.
+src/app/dashboard/progress/page.tsx(14,8): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/dashboard/settings/page.tsx(13,21): error TS1003: Identifier expected.
+src/app/dashboard/settings/page.tsx(14,8): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/home/ascend/page.tsx(93,152): error TS1003: Identifier expected.
+src/app/home/ascend/page.tsx(95,16): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/home/ascend/page.tsx(150,92): error TS1003: Identifier expected.
+src/app/home/ascend/page.tsx(152,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/home/ascend/page.tsx(178,92): error TS1003: Identifier expected.
+src/app/home/ascend/page.tsx(180,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/home/nexus/page.tsx(243,92): error TS1003: Identifier expected.
+src/app/home/nexus/page.tsx(245,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/nexus/page.tsx(68,8): error TS17008: JSX element 'Container' has no corresponding closing tag.
+src/app/nexus/page.tsx(231,110): error TS1003: Identifier expected.
+src/app/nexus/page.tsx(231,145): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/app/nexus/page.tsx(233,19): error TS17002: Expected corresponding JSX closing tag for 'div'.
+src/app/nexus/page.tsx(265,15): error TS1005: '}' expected.
+src/app/nexus/page.tsx(265,16): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/app/nexus/page.tsx(326,7): error TS1005: ')' expected.
+src/app/nexus/page.tsx(327,5): error TS1109: Expression expected.
+src/app/nexus/page.tsx(328,3): error TS1109: Expression expected.
+src/components/auth/SignUpForm.tsx(321,85): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/dashboard/ContinueLearning.tsx(137,9): error TS1003: Identifier expected.
+src/components/dashboard/ContinueLearning.tsx(139,8): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/dashboard/DailyGoalCard.tsx(48,19): error TS1003: Identifier expected.
+src/components/dashboard/DailyGoalCard.tsx(50,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/dashboard/DailyGoalCard.tsx(56,19): error TS1003: Identifier expected.
+src/components/dashboard/DailyGoalCard.tsx(60,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/dashboard/LearningJourney.tsx(70,21): error TS1005: '}' expected.
+src/components/dashboard/RevisionCentre.tsx(97,31): error TS17002: Expected corresponding JSX closing tag for 'svg'.
+src/components/dashboard/RevisionCentre.tsx(98,27): error TS1005: ':' expected.
+src/components/dashboard/RevisionCentre.tsx(98,29): error TS17002: Expected corresponding JSX closing tag for 'span'.
+src/components/dashboard/RevisionCentre.tsx(108,33): error TS17002: Expected corresponding JSX closing tag for 'svg'.
+src/components/dashboard/RevisionCentre.tsx(109,31): error TS17002: Expected corresponding JSX closing tag for 'div'.
+src/components/dashboard/RevisionCentre.tsx(119,35): error TS17002: Expected corresponding JSX closing tag for 'svg'.
+src/components/dashboard/RevisionCentre.tsx(129,33): error TS17002: Expected corresponding JSX closing tag for 'Reveal'.
+src/components/dashboard/RevisionCentre.tsx(130,31): error TS1005: ')' expected.
+src/components/dashboard/RevisionCentre.tsx(131,23): error TS17002: Expected corresponding JSX closing tag for 'div'.
+src/components/dashboard/RevisionCentre.tsx(132,21): error TS17002: Expected corresponding JSX closing tag for 'Container'.
+src/components/dashboard/RevisionCentre.tsx(143,19): error TS17002: Expected corresponding JSX closing tag for 'Reveal'.
+src/components/dashboard/RevisionCentre.tsx(144,17): error TS17002: Expected corresponding JSX closing tag for 'section'.
+src/components/dashboard/RevisionCentre.tsx(145,14): error TS1005: ';' expected.
+src/components/dashboard/RevisionCentre.tsx(146,11): error TS1128: Declaration or statement expected.
+src/components/dashboard/RevisionCentre.tsx(154,9): error TS1128: Declaration or statement expected.
+src/components/dashboard/RevisionCentre.tsx(155,7): error TS1109: Expression expected.
+src/components/dashboard/RevisionCentre.tsx(156,5): error TS1109: Expression expected.
+src/components/dashboard/RevisionCentre.tsx(157,3): error TS1109: Expression expected.
+src/components/dashboard/RevisionCentre.tsx(158,1): error TS1128: Declaration or statement expected.
+src/components/dashboard/WelcomeSection.tsx(67,15): error TS17002: Expected corresponding JSX closing tag for 'div'.
+src/components/dashboard/WelcomeSection.tsx(92,19): error TS1003: Identifier expected.
+src/components/dashboard/WelcomeSection.tsx(94,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/dashboard/WelcomeSection.tsx(100,19): error TS1003: Identifier expected.
+src/components/dashboard/WelcomeSection.tsx(104,18): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/lib/junior/activity-renderer.ts(336,5): error TS1128: Declaration or statement expected.
+src/lib/junior/activity-renderer.ts(379,5): error TS1128: Declaration or statement expected.
+src/lib/junior/activity-renderer.ts(436,2): error TS1005: '}' expected.
